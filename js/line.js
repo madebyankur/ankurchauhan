@@ -1,18 +1,6 @@
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2016, Codrops
- * http://www.codrops.com
- */
 ;(function(window) {
-
 	'use strict';
 
-	// Helper vars and functions.
 	function extend( a, b ) {
 		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
@@ -22,9 +10,6 @@
 		return a;
 	}
 
-	/**
-	 * Line obj.
-	 */
 	function Line(options) {
 		this.options = extend({}, this.options);
 		extend(this.options, options);
@@ -32,14 +17,6 @@
 	}
 
 	Line.prototype.options = {
-		// top, left, width, height: numerical for pixels or string for % and viewport units. Examples: 2 || '20%' || '50vw'.
-		// color: the (bg)color of the line.
-		// hidden: defines if the line is rendered initially or hidden by default.
-		// animation: animation properties for the line
-		// 		duration: animation speed.
-		// 		easing: animation easing (animejs easing. To see all possible values console animejs.easings).
-		// 		delay: animation delay.
-		// 		direction: line animation direction. Possible values: TopBottom || BottomTop || LeftRight || RightLeft || CenterV || CenterH.
 		width: 1,
 		height: '100%',
 		left: '50%',
@@ -54,9 +31,6 @@
 		}
 	};
 
-	/**
-	 * Set style.
-	 */
 	Line.prototype._init = function() {
 		this.el = document.createElement('div');
 		this.el.className = 'decoline';
@@ -71,9 +45,6 @@
 		this.rendered = !opts.hidden;
 	};
 
-	/**
-	 * Transform origin is set according to the animation direction.
-	 */
 	Line.prototype._setOrigin = function() {
 		var opts = this.options, tOrigin = '50% 50%';
 
@@ -93,9 +64,6 @@
 		this.el.style.WebkitTransformOrigin = this.el.style.transformOrigin = tOrigin;
 	};
 
-	/**
-	 * Animates the line.
-	 */
 	Line.prototype.animate = function(settings) {
 		if( this.isAnimating ) {
 			return false;
@@ -113,7 +81,6 @@
 			this.options.animation.direction = settings.direction;
 		}
 
-		// Sets origin again. Settings might contain a different animation direction?
 		this._setOrigin();
 
 		if( this.options.animation.direction === 'TopBottom' || this.options.animation.direction === 'BottomTop' || this.options.animation.direction === 'CenterV' ) {
@@ -139,33 +106,18 @@
 		anime(animeProps);
 	};
 
-
-	/**
-	 * LineMaker obj.
-	 */
 	function LineMaker(options) {
 		this.options = extend({}, this.options);
 		extend(this.options, options);
 		this._init();
 	}
 
-	/**
-	 * LineMaker options.
-	 */
 	LineMaker.prototype.options = {
-		// Where to insert the lines container.
-		// element: the DOM element or a string to specify the selector, e.g. '#id' or '.classname'.
-		// position: Whether to prepend or append to the parent.element
 		parent: {element: document.body, position: 'prepend'},
-		// position: if fixed the lines container will have fixed position.
 		position: 'absolute',
-		// The lines settings.
 		lines: []
 	};
 
-	/**
-	 * Create the lines and its structure.
-	 */
 	LineMaker.prototype._init = function() {
 		this.lines = [];
 
@@ -194,10 +146,6 @@
 		}
 	};
 
-
-	/**
-	 * Shows/Hides all lines with an animation.
-	 */
 	LineMaker.prototype._animateLines = function(dir, callback) {
 		var completed = 0, totalLines = this.lines.length;
 
@@ -228,14 +176,9 @@
 		}
 	};
 
-	/**
-	 * Shows all lines with an animation.
-	 */
 	LineMaker.prototype.animateLinesIn = function(callback) {
 		this._animateLines('in', callback);
 	};
 
-
 	window.LineMaker = LineMaker;
-
 })(window);
