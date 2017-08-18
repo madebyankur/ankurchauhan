@@ -139,22 +139,6 @@
 		anime(animeProps);
 	};
 
-	/**
-	 * Show the line.
-	 */
-	Line.prototype.show = function() {
-		this.el.style.opacity = 1;
-		this.el.style.WebkitTransform = this.el.style.transform = 'scale3d(1,1,1)';
-		this.rendered = true;
-	};
-
-	/**
-	 * Hide the line.
-	 */
-	Line.prototype.hide = function() {
-		this.el.style.opacity = 0;
-		this.rendered = false;
-	};
 
 	/**
 	 * LineMaker obj.
@@ -210,15 +194,6 @@
 		}
 	};
 
-	/**
-	 * Shows/Hides one line with an animation.
-	 */
-	LineMaker.prototype._animateLine = function(lineIdx, dir, settings) {
-		var line = this.lines[lineIdx];
-		if( line && dir === 'in' && !line.rendered || dir === 'out' && line.rendered ) {
-			line.animate(settings);
-		}
-	};
 
 	/**
 	 * Shows/Hides all lines with an animation.
@@ -254,127 +229,12 @@
 	};
 
 	/**
-	 * Shows/Hides one line.
-	 */
-	LineMaker.prototype._toggleLine = function(lineIdx, action) {
-		var line = this.lines[lineIdx];
-		if( !line ) { return; }
-
-		if( action === 'show' && !line.rendered ) {
-			line.show();
-		}
-		else if( action === 'hide' && line.rendered ) {
-			line.hide();
-		}
-	};
-
-	/**
-	 * Shows/Hides all lines.
-	 */
-	LineMaker.prototype._toggleLines = function(action) {
-		for(var i = 0, len = this.lines.length; i < len; ++i) {
-			this._toggleLine(i, action);
-		}
-	};
-
-	/**
-	 * Shows one line with an animation.
-	 * lineIndex: index/position of the line in the LineMaker.options.lines array.
-	 * animationSettings is optional: if not passed, the animation settings defined in LineMaker.options.lines for each line will be used.
-	 */
-	LineMaker.prototype.animateLineIn = function(lineIdx, settings) {
-		this._animateLine(lineIdx, 'in', settings);
-	};
-
-	/**
-	 * Hides one line with an animation.
-	 * lineIndex: index/position of the line in the LineMaker.options.lines array.
-	 * animationSettings is optional: if not passed, the animation settings defined in LineMaker.options.lines for each line will be used.
-	 */
-	LineMaker.prototype.animateLineOut = function(lineIdx, settings) {
-		this._animateLine(lineIdx, 'out', settings);
-	};
-
-	/**
 	 * Shows all lines with an animation.
 	 */
 	LineMaker.prototype.animateLinesIn = function(callback) {
 		this._animateLines('in', callback);
 	};
 
-	/**
-	 * Hides all lines with an animation.
-	 */
-	LineMaker.prototype.animateLinesOut = function(callback) {
-		this._animateLines('out', callback);
-	};
-
-	/**
-	 * Shows one line.
-	 * lineIndex: index/position of the line in the LineMaker.options.lines array.
-	 */
-	LineMaker.prototype.showLine = function(lineIdx) {
-		this._toggleLine(lineIdx, 'show');
-	};
-
-	/**
-	 * Hides one line.
-	 * lineIndex: index/position of the line in the LineMaker.options.lines array.
-	 */
-	LineMaker.prototype.hideLine = function(lineIdx) {
-		this._toggleLine(lineIdx, 'hide');
-	};
-
-	/**
-	 * Shows all lines.
-	 */
-	LineMaker.prototype.showLines = function() {
-		this._toggleLines('show');
-	};
-
-	/**
-	 * Hides all lines.
-	 */
-	LineMaker.prototype.hideLines = function() {
-		this._toggleLines('hide');
-	};
-
-	/**
-	 * Removes a line.
-	 * lineIndex: index/position of the line in the LineMaker.options.lines array.
-	 */
-	LineMaker.prototype.removeLine = function(lineIdx) {
-		var line = this.lines[lineIdx];
-		if( line ) {
-			this.lines.splice(lineIdx, 1);
-			this.decolines.removeChild(this.decolines.children[lineIdx]);
-		}
-	};
-
-	/**
-	 * Removes all lines.
-	 */
-	LineMaker.prototype.removeLines = function() {
-		this.lines = [];
-		this.decolines.innerHTML = '';
-	};
-
-	/**
-	 * Creates a line.
-	 * settings is optional: same settings passed in LineMaker.options.lines for one line.
-	 */
-	LineMaker.prototype.createLine = function(settings) {
-		var line = new Line(settings);
-		this.decolines.appendChild(line.el);
-		this.lines.push(line);
-	};
-
-	/**
-	 * Returns the total number of lines.
-	 */
-	LineMaker.prototype.getTotalLines = function() {
-		return this.lines.length;
-	}
 
 	window.LineMaker = LineMaker;
 
