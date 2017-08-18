@@ -13,13 +13,10 @@
       // 		delay: animation delay.
       // 		direction: line animation direction. Possible values: TopBottom || BottomTop || LeftRight || RightLeft || CenterV || CenterH.
       lines: [
-        {top: 0, left: '12.5%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '25%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '37.5%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '50%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '62.5%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '75%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
-        {top: 0, left: '87.5%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }}
+        {top: 0, left: '20%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
+        {top: 0, left: '40%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
+        {top: 0, left: '60%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }},
+        {top: 0, left: '80%', width: 1, height: '100vh', color: '#efe2e1', hidden: true, animation: { duration: 2000, easing: 'easeInOutExpo', delay: 0, direction: 'TopBottom' }}
       ]
   });
 
