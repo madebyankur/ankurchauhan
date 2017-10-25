@@ -516,6 +516,8 @@ a:hover {
     text-decoration: underline;
     text-decoration-skip: ink;
     -webkit-text-decoration-skip: ink;
+    -moz-text-decoration-skip: ink;
+    -ms-text-decoration-skip: ink;
 }
 .button,
 button,
