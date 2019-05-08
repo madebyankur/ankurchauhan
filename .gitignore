@@ -1,2 +1,14 @@
+# General
+.DS_Store
+
+# Domain
 CNAME
 .htaccess
+
+# OG Images
+og.jpg
+apple-icon-72x72.png
+apple-icon-114x114.png
+apple-icon-144x144.png
+apple-icon.png
+ms-icon-144x144.jpg
